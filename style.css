@@ -1,0 +1,285 @@
+/* === CSS Variables (Global Theme) === */
+:root {
+    --bg-color: #121212;
+    --card-color: #1A1A1A;
+    --border-color: #2F2F2F;
+    --primary-color: #B5F64E;
+    --text-primary: #FFFFFF;
+    --text-secondary: #AAAAAA;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* === Global Styles & Reset === */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+.container { width: 90%; max-width: 1100px; margin: 0 auto; }
+h1, h2, h3 { line-height: 1.2; font-weight: 600; }
+h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--text-primary); }
+p { margin-bottom: 1rem; color: var(--text-secondary); }
+a { color: var(--primary-color); text-decoration: none; }
+ul { list-style: none; }
+img { max-width: 100%; display: block; }
+section { padding: 6rem 0; }
+
+/* === Utility Classes === */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #000;
+    border: 2px solid var(--primary-color);
+}
+.btn-primary:hover { background-color: transparent; color: var(--primary-color); }
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+}
+.btn-secondary:hover {
+    background-color: var(--text-primary);
+    color: var(--bg-color);
+    border-color: var(--text-primary);
+}
+.link-arrow {
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: margin-left 0.3s ease;
+}
+.link-arrow::after { content: ' →'; }
+.link-arrow:hover { margin-left: 5px; }
+
+/* === Navigation Bar === */
+.navbar { padding: 1.5rem 0; border-bottom: 1px solid var(--border-color); }
+.navbar .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-weight: 700; font-size: 1.2rem; color: var(--text-primary); }
+.nav-links { display: flex; gap: 2rem; }
+.nav-links a { color: var(--text-secondary); font-weight: 500; transition: color 0.3s ease; }
+.nav-links a:hover { color: var(--text-primary); }
+
+/* === Hero Section === */
+.hero { padding: 5rem 0; }
+.hero-content { display: flex; align-items: center; gap: 3rem; }
+.hero-text { flex: 1.5; }
+.hero-buttons { display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 1.5rem; }
+.social-links { display: flex; gap: 1.5rem; margin-top: 1.5rem; align-items: center; }
+.social-links a { color: var(--text-secondary); font-size: 1.5rem; transition: color 0.3s ease; }
+.social-links a:hover { color: var(--primary-color); }
+
+/* === Hero Image (Clean Style) === */
+.hero-image {
+    flex: 1;
+    text-align: right;
+}
+.hero-image img {
+    border-radius: 12px;
+    width: 400px;
+    height: 450px;
+    object-fit: cover;
+}
+
+/* === Featured Projects - FIXED HEIGHT LOGIC === */
+.section-subtitle { font-size: 1.1rem; margin-bottom: 3rem; }
+.project-card {
+    display: flex;
+    gap: 3rem;
+    background-color: var(--card-color);
+    padding: 2.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    border: 1px solid var(--border-color);
+}
+.project-image { 
+    flex: 1; 
+    /* Forces a fixed height container for the image/GIF */
+    height: 300px; 
+    overflow: hidden;
+    border-radius: 8px;
+}
+.project-image img { 
+    width: 100%; 
+    height: 100%; 
+    /* 'cover' makes it fill the box (good for design). 
+       'contain' would show full image but leave empty space. */
+    object-fit: cover; 
+}
+.project-info { flex: 1; display: flex; flex-direction: column; justify-content: center; }
+.project-label {
+    display: inline-block;
+    background-color: var(--border-color);
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+    align-self: flex-start;
+}
+.project-info h3 { font-size: 1.8rem; margin-bottom: 1rem; color: var(--text-primary); }
+.project-details { margin: 1.5rem 0; border-top: 1px solid var(--border-color); padding-top: 1rem; }
+.project-links { display: flex; gap: 1.5rem; }
+
+/* === Carousel Section === */
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.carousel-container {
+    display: flex;
+    gap: 2rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 1rem 0;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+.carousel-container::-webkit-scrollbar { display: none; }
+
+.carousel-btn {
+    background: var(--card-color);
+    color: var(--primary-color);
+    border: 1px solid var(--border-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+.carousel-btn:hover { background: var(--primary-color); color: #000; }
+
+.cert-card {
+    flex: 0 0 320px;
+    scroll-snap-align: start;
+    background-color: var(--card-color);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+/* === Experience Timeline Section (NEW) === */
+.experience-section {
+    padding: 6rem 0;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+/* The vertical line */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    background-color: var(--border-color);
+    top: 0;
+    bottom: 0;
+    left: 19px; /* Aligns line with dots */
+    margin-left: -1px;
+}
+
+.timeline-item {
+    padding: 0 0 3rem 4rem; /* Space on left for line */
+    position: relative;
+}
+
+.timeline-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 11px; /* Centers dot on line */
+    top: 5px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(181, 246, 78, 0.4); /* Glow effect */
+}
+
+.timeline-date {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+}
+
+.timeline-content h3 {
+    margin-bottom: 0.25rem;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.company-name {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-style: italic;
+}
+
+/* Mobile adjustment for timeline */
+@media (max-width: 900px) {
+    .timeline-item { padding-left: 3rem; }
+    .timeline::after { left: 11px; }
+    .timeline-dot { left: 3px; }
+}
+.cert-header { display: flex; align-items: center; gap: 1rem; }
+.cert-logo { width: 50px; height: 50px; border-radius: 8px; }
+.cert-info h3 { font-size: 1.1rem; margin-bottom: 0; }
+.cert-info .cert-issuer { font-size: 0.85rem; margin-bottom: 0; }
+.cert-scan {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 0.5rem;
+}
+
+/* === About & Contact === */
+.about-me { background-color: var(--card-color); border-radius: 12px; padding: 4rem; border: 1px solid var(--border-color); }
+.contact-content { display: flex; gap: 4rem; }
+.contact-info { flex: 1; }
+.contact-form { flex: 1.5; display: flex; flex-direction: column; gap: 1.5rem; }
+.form-group { display: flex; flex-direction: column; }
+.form-group label { color: var(--text-secondary); margin-bottom: 0.5rem; font-size: 0.9rem; }
+.form-group input, .form-group textarea {
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: var(--font-sans);
+    font-size: 1rem;
+}
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--primary-color); }
+.footer { padding: 2.5rem 0; border-top: 1px solid var(--border-color); margin-top: 4rem; text-align: center; }
+
+/* === Responsiveness === */
+@media (max-width: 900px) {
+    .hero-content { flex-direction: column-reverse; text-align: center; }
+    .hero-buttons, .social-links { justify-content: center; }
+    .hero-image img { width: 300px; height: 340px; margin: 0 auto; }
+    .project-card { flex-direction: column; gap: 2rem; }
+    .project-image { height: 250px; } /* Slightly smaller on mobile */
+    .contact-content { flex-direction: column; gap: 3rem; }
+}

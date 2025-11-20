@@ -21,7 +21,6 @@
             </ul>
         </div>
     </nav>
-
     <header class="hero">
         <div class="container hero-content">
             <div class="hero-text">
@@ -47,9 +46,7 @@
             </div>
         </div>
     </header>
-
     <main class="container">
-<!-- === NEW: Experience Section (Timeline) === -->
         <section id="experience" class="experience-section">
             <h2>INTERNSHIP EXPERIENCE</h2>
             <div class="timeline">
@@ -127,7 +124,23 @@
                     </div>
                 </div>
             </article>
-
+            <article class="project-card">
+                <div class="project-image">
+                    <img src="assets/CRUD.png" alt="CRUD Demo">
+                </div>
+                <div class="project-info">
+                    <span class="project-label">.NET Application</span>
+                    <h3>CRUD</h3>
+                    <p>Simple CRUD application demonstrating basic database operations.</p>
+                    <div class="project-details">
+                        <div><strong>Stack:</strong> ASP.NET, MySQL</div>
+                    </div>
+                    <div class="project-links">
+                        <!-- <a href="#" class="link-arrow" target="_blank">Live Demo</a> -->
+                        <a href="https://github.com/Gitanjali7789/CRUD" class="link-arrow" target="_blank">GitHub Repo</a>
+                    </div>
+                </div>
+            </article>
             <article class="project-card">
                 <div class="project-image">
                     <img src="assets/weather.png" alt="Weather App">
@@ -305,15 +318,12 @@
                 </form>
             </div>
         </section>
-
     </main>
-
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Gitanjali Mohapatra. All rights reserved.</p>
         </div>
     </footer>
-
     <script>
         function moveCarousel(direction) {
             const container = document.querySelector('.carousel-container');
@@ -324,6 +334,5 @@
             });
         }
     </script>
-
 </body>
 </html>
